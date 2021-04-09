@@ -12,26 +12,31 @@
 
 <body>
   <div id="root">
-
+    <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+    <div class="box">
     <div class="flip-card" v-for="disk in disks">
-
       <div class="flip-card-inner">
-
         <div class="flip-card-front" :style="`background-image: url(' ${disk.poster} ');`">
         </div>
-
         <div class="flip-card-back">
-          <div class="info">
-
-            <h3> {{ disk.title }} </h3>
-            <p> {{ disk.author }} </p>
-            <p> {{ disk.genre }} </p>
-            <p> {{ disk.year }} </p>
+          <div class="card-info">
+            <span> {{ disk.title }} </span>
+            <span> {{ disk.author }} </span>
+            <span> {{ disk.genre }} </span>
+            <span> {{ disk.year }} </span>
           </div>
         </div>
       </div>
 
+      </div>
     </div>
+
+
   </div>
 
 

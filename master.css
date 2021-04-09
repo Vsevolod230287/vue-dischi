@@ -8,22 +8,33 @@ body {
   background-color: red;
 }
 
-#root {
+div#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.box {
+  padding-top: 40px;
+  padding-left: 65px;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-
 }
 
 .flip-card {
-  width: calc(100vw/4 - 20px);
+  margin: 10px;
+  background-color: transparent;
+  width: calc(100vw/6  - 5px);
   perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
+  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -33,32 +44,36 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Position the front and back side */
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
   padding-top: 100%;
   -webkit-backface-visibility: hidden;
+  /* Safari */
   backface-visibility: hidden;
 }
 
+/* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
-
+/* Style the back side */
 .flip-card-back {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
 }
-div.flip-card-back div.info {
+
+.card-info {
   position: absolute;
-    top: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+select {
+  margin-top: 20px;
+  width: 100px;
 }
