@@ -12,12 +12,26 @@ var app = new Vue({
   el: '#root',
   data: {
     disks: [],
+    selected: '',
+    optionGenre: [],
   },
-  mounted()  {
+  mounted() {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-    .then((response) => {
-      this.disks = response.data.response;
-      console.log(this.disks);
-    })
+      .then((response) => {
+        this.disks = response.data.response;
+
+        this.disks.forEach((disk, i, array) => {
+          if (!this.optionGenre.includes(disk.genre)) {
+            this.optionGenre.push(disk.genre)
+          }
+        })
+
+
+      })
+  },
+  methods: {
+    getGenre: function() {
+
+    }
   }
 })

@@ -12,14 +12,13 @@
 
 <body>
   <div id="root">
-    <select name="cars" id="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
+    <select v-model="selected">
+    <option disabled value="">Seleziona un'opzione</option>
+    <option v-for="genre in optionGenre"> {{ genre }}</option>
   </select>
     <div class="box">
-    <div class="flip-card" v-for="disk in disks">
+    <div class="flip-card" v-for="(disk, i) in disks"
+    v-if="selected == disk.genre">
       <div class="flip-card-inner">
         <div class="flip-card-front" :style="`background-image: url(' ${disk.poster} ');`">
         </div>
