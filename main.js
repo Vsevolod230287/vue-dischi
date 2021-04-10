@@ -23,6 +23,7 @@ var app = new Vue({
         this.disks.forEach((disk, i, array) => {
           if (!this.optionGenre.includes(disk.genre)) {
             this.optionGenre.push(disk.genre)
+            
           }
         })
 

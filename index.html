@@ -12,25 +12,25 @@
 
 <body>
   <div id="root">
+    <span>Seleziona un Genere musicale</span>
     <select v-model="selected">
-    <option disabled value="">Seleziona un'opzione</option>
-    <option v-for="genre in optionGenre"> {{ genre }}</option>
-  </select>
+      <option>Tutti</option>
+      <option v-for="genre in optionGenre"> {{ genre }}</option>
+    </select>
     <div class="box">
-    <div class="flip-card" v-for="(disk, i) in disks"
-    v-if="selected == disk.genre">
-      <div class="flip-card-inner">
-        <div class="flip-card-front" :style="`background-image: url(' ${disk.poster} ');`">
-        </div>
-        <div class="flip-card-back">
-          <div class="card-info">
-            <span> {{ disk.title }} </span>
-            <span> {{ disk.author }} </span>
-            <span> {{ disk.genre }} </span>
-            <span> {{ disk.year }} </span>
+      <div class="flip-card" v-for="disk in disks" v-if="selected == disk.genre || selected == 'Tutti' || selected == '' ">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" :style="`background-image: url(' ${disk.poster} ');`">
+          </div>
+          <div class="flip-card-back">
+            <div class="card-info">
+              <div> {{ disk.title }} </div>
+              <div> {{ disk.author }} </div>
+              <div> {{ disk.genre }} </div>
+              <div> {{ disk.year }} </div>
+            </div>
           </div>
         </div>
-      </div>
 
       </div>
     </div>
